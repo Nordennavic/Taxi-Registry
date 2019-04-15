@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Taxi_Registry
 {
@@ -68,6 +65,16 @@ namespace Taxi_Registry
         public string Name { get; set; }
 
         /// <summary>
+        /// Фамилия водителя
+        /// </summary>
+        public string Surname { get; set; }
+
+        /// <summary>
+        /// Отчество водителя
+        /// </summary>
+        public string MiddleName { get; set; }
+
+        /// <summary>
         /// Дата рождения водителя
         /// </summary>
         public DateTime DateOfBirth { get; set; }
@@ -112,7 +119,12 @@ namespace Taxi_Registry
         public bool AdditionalTerms { get; set; }
 
         /// <summary>
-        /// Оценка поездки пассажиром
+        /// Оценка пассажира
+        /// </summary>
+        public RideRating Rating { get; set; }
+
+        /// <summary>
+        /// Виды оценок 
         /// </summary>
         public enum RideRating
         {
@@ -123,14 +135,21 @@ namespace Taxi_Registry
             Four,
             Five
         }
-
         /// <summary>
         /// Статус заказа
+        /// </summary>
+        public OrderStatus Status { get; set; }
+        /// <summary>
+        /// Виды статуса
         /// </summary>
         public enum OrderStatus
         {
             Cancelled,
             Completed,
+        }
+        public override string ToString()
+        {
+            return $"{nameof(From)}: {From}, {nameof(To)}: {To}, {nameof(RideTime)}: {RideTime}, {nameof(AdditionalTerms)}: {AdditionalTerms}, {nameof(Status)}: {Status}, {nameof(Rating)}: {Rating}";
         }
     }
 
