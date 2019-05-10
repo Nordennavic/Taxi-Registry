@@ -37,8 +37,7 @@ namespace TaxiRegistry.UI
             order.To = textBox2.Text;
             order.RideTime = dateTimePicker1.Value;
             order.AdditionalTerms = checkBox1.Checked;
-
-            switch (comboBox1.SelectedValue?.ToString())
+            switch (comboBox1.SelectedItem?.ToString())
             {
                 case "Отменён":
                     order.Status = Order.OrderStatus.Cancelled;
@@ -48,7 +47,7 @@ namespace TaxiRegistry.UI
                     break;
             }
 
-            switch (comboBox2.SelectedValue?.ToString())
+            switch (comboBox2.SelectedItem?.ToString())
             { 
 
                 case "1":

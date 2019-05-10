@@ -8,7 +8,7 @@ namespace Taxi_Registry
         /// <summary>
         /// Водитель 
         /// </summary>
-        public Driver driver;
+        public Driver Driver;
 
         /// <summary>
         /// Модель и бренд автомобиля
@@ -41,15 +41,9 @@ namespace Taxi_Registry
         public bool BabyChair { get; set; }
 
         /// <summary>
-        /// Тип такси
+        /// Тип этого такси
         /// </summary>
-        public enum TaxiType
-        {
-            Econom,
-            Comfort,
-            Business,
-            Cargo
-        }
+        public TaxiType Type;
 
         /// <summary>
         /// Список заказов
@@ -88,12 +82,12 @@ namespace Taxi_Registry
         /// Средняя оценка от всех поездок. Считается,
         /// при наличии выполненных заказов.
         /// </summary>
-        public double DriverRating { get; private set; }
+        public double DriverRating { get; set; }
         
         /// <summary>
         /// Количество выполненных заказов
         /// </summary>
-        public int CompletedOrdersCount { get; private set; }
+        public int CompletedOrdersCount { get; set; }
     }
 
     public class Order
@@ -128,12 +122,12 @@ namespace Taxi_Registry
         /// </summary>
         public enum RideRating
         {
-            none,
-            One,
-            Two,
-            Three,
-            Four,
-            Five
+            none = 0,
+            One = 1,
+            Two = 2,
+            Three = 3,
+            Four = 4,
+            Five = 5
         }
         /// <summary>
         /// Статус заказа
@@ -151,6 +145,17 @@ namespace Taxi_Registry
         {
             return $"{nameof(From)}: {From}, {nameof(To)}: {To}, {nameof(RideTime)}: {RideTime}, {nameof(AdditionalTerms)}: {AdditionalTerms}, {nameof(Status)}: {Status}, {nameof(Rating)}: {Rating}";
         }
+    }
+
+    /// <summary>
+    /// Существующие типы такси
+    /// </summary>
+    public enum TaxiType
+    {
+        Econom,
+        Comfort,
+        Business,
+        Cargo
     }
 
 }
